@@ -26,7 +26,7 @@ const RegisterLand = (props) => {
     const formData = new FormData();
     const FileUpload = e.target.files[0];
 
-    const {name} = e.target;
+    const { name } = e.target;
 
     console.log(name);
 
@@ -47,9 +47,9 @@ const RegisterLand = (props) => {
         }
       });
       console.log(res.data.IpfsHash);
-      const deliverabelURl=`https://ipfs.io/ipfs/${res.data.IpfsHash}`;
+      const deliverabelURl = `https://ipfs.io/ipfs/${res.data.IpfsHash}`;
       setSetttedURl(deliverabelURl)
-      setLandDetials({ ...landDetails, [name]: deliverabelURl});
+      setLandDetials({ ...landDetails, [name]: deliverabelURl });
       setURICame(true)
 
     } catch (error) {
@@ -78,29 +78,44 @@ const RegisterLand = (props) => {
           <form method='POST' className='admin-form form_area123'>
 
             <div className='form_group'>
-              <label className="sub_title">Market Value</label>
-              <input type="number" className="form-control form_style" name="marketValue" placeholder="Enter market value"
-                autoComplete="off" value={landDetails.marketValue} onChange={onChangeFunc} />
-            </div>
-
-
-            <div className='form_group'>
-              <label className="sub_title">Tender Type</label>
-              <input type="text" className="form-control form_style" name="tendertype" placeholder="Enter Tender Type"
-                autoComplete="off" value={landDetails.tendertype} onChange={onChangeFunc} />
-            </div>
-
-
-            <div className='form_group'>
               <label className="sub_title">Tender Name</label>
               <input type="text" className="form-control form_style" name="tenderName" placeholder="Enter Tender Name"
                 autoComplete="off" value={landDetails.tenderName} onChange={onChangeFunc} />
             </div>
 
             <div className='form_group'>
+              <label className="sub_title">Tender Type</label>
+              {/* <input type="text" className="form-control form_style" name="tendertype" placeholder="Enter Tender Type"
+                autoComplete="off" value={landDetails.tendertype} onChange={onChangeFunc} /> */}
+              <select
+                className="form-control form_style"
+                name="tendertype"
+                value={landDetails.tendertype}
+                onChange={onChangeFunc}
+              style={{ height: '50px' }}
+
+              >
+                <option value="">Select Tender Type</option>
+                <option value="Construction">Construction</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Electrical and Mechanical">Electrical and Mechanical</option>
+                <option value="IT">Information Technology (IT)</option>
+                <option value="Supply">Supply</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Education">Education</option>
+              </select>
+            </div>
+
+            <div className='form_group'>
               <label className="sub_title">Tender File</label>
               {!URICame ? <input type="file" accept='*' className="form-control form_style" name="ipfsuri" placeholder="Enter Tender File"
-                autoComplete="off"  onChange={uploadIPFsFile} />:<p><a href={SetttedURl} target='_blank'>IPFS</a></p>}
+                autoComplete="off" onChange={uploadIPFsFile} /> : <p><a href={SetttedURl} target='_blank'>IPFS</a></p>}
+            </div>
+
+            <div className='form_group'>
+              <label className="sub_title">Market Value</label>
+              <input type="number" className="form-control form_style" name="marketValue" placeholder="Enter market value in Ethers"
+                autoComplete="off" value={landDetails.marketValue} onChange={onChangeFunc} />
             </div>
 
           </form>

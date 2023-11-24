@@ -96,7 +96,7 @@ function App() {
             <div className='container mainDiv'>
               <div className='landingPage-heading-div'>
                 <img src={emblem} alt="emblem" className="emblem" />
-                <h5>Decentralized Allocation System</h5>
+                <h5>SecureBid : Decentralized Tender Allocation System</h5>
               </div>
 
               {/* <p className='welcome-p'>Welcome to online Land Registration and transfer of entitlement</p> */}

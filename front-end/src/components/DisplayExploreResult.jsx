@@ -53,7 +53,9 @@ const DisplayExploreResult = (props) => {
               <p><b>Market Value:</b> {props.marketValue}</p>
               <p><b>TenderName:</b> {props.tendorName}</p>
               <p><b>TenderType:</b> {props.tendortype}</p>
-              <p><b>ipfsURI:</b> {props.ipfsuri}</p>
+              <p style={{marginTop:'-30px'}}><b>ipfsURI:</b> <button className='btn' style={{ height: '40px', width: '110px' }} onClick={()=>{
+                window.open(props.ipfsuri,"_blank");
+              }}> View File </button> </p>
 
               {
                 (props.available) ?  // if land is marked for sale.
@@ -86,7 +88,7 @@ const DisplayExploreResult = (props) => {
 
                               </div>
 
-                              <button className='btn' style={{ marginTop: "30px" }} onClick={() => props.requestForBuy(props.surveyNo, BidAmount, FileURI)}><b>Request for buy</b></button></> : <button className='btn' onClick={() => { setApplied(true) }}>Apply</button>}
+                              <button className='btn' style={{ marginTop: "30px" }} onClick={() => props.requestForBuy(props.surveyNo, BidAmount, FileURI)}><b>Submit For Tender</b></button></> : <button className='btn' style={{marginTop:"-10px"}} onClick={() => { setApplied(true) }}>Apply</button>}
 
                           </>
 
