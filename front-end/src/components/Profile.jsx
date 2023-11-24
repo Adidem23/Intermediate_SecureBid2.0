@@ -104,13 +104,14 @@ const Profile = (props) => {
 <h1 style={{display:'block',width:'fit-content',marginLeft:'0px'}}>Profile</h1>
         <div className='row'>
           <div className='col-12 col-sm-6'>
-              <label><b>Owner Address</b></label>
-              <p>{userInfo.address}</p>
 
-              <label><b>Full Name</b></label>
+              <label><b>Name</b></label>
               <p>{userInfo.fullName}</p>
 
-              <label><b>Residential Address</b></label>
+              <label><b>Wallet Address</b></label>
+              <p>{userInfo.address}</p>
+
+              <label><b>Office  Address</b></label>
               <p>{userInfo.residential_addr}</p>
 
           </div>

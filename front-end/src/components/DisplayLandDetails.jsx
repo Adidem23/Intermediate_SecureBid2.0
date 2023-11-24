@@ -14,10 +14,11 @@ const DisplayLandDetails = (props) => {
         <div className='explore-result'>
           <div className='row'>
             <div className='col-12 col-md-6'>
-              <p><b>Owner:</b> {props.owner}</p>
+              
               <p><b>Assignend To:</b> {props.userName}</p>
-              <p><b>TenderID:</b> {props.surveyNo}</p>
-              <p><b>Market Value:</b> {props.marketValue}</p>
+              <p><b>Address:</b> {props.owner}</p>
+              <p><b>Tender ID:</b> {props.surveyNo}</p>
+              {/* <p><b>Market Value:</b> {props.marketValue}</p> */}
             </div>
 
             <div className='col-12 col-md-6'>

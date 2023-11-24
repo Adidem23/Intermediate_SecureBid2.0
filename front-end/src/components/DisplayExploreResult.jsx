@@ -47,13 +47,13 @@ const DisplayExploreResult = (props) => {
         (props.propertyId != 0) ?   // propertyId != 0 means we got a result while exploring.
           (
             <div className='explore-result' style={{ marginBottom: '20px' }}>
-              <p><b>Owner Address:</b> {props.owner}</p>
-              <p><b>Owner Name:</b>{props.OwnerName}</p>
-              <p><b>Survey Number:</b> {props.surveyNo}</p>
+              <p><b>Tender ID:</b> {props.surveyNo}</p>
+              <p><b>Tender Name:</b> {props.tendorName}</p>
+              <p><b>Tender Type:</b> {props.tendortype}</p>
+              <p><b>Department Name: </b> {props.OwnerName}</p>
+              <p><b>Department Wallet Address:</b> {props.owner}</p>
               <p><b>Market Value:</b> {props.marketValue}</p>
-              <p><b>TenderName:</b> {props.tendorName}</p>
-              <p><b>TenderType:</b> {props.tendortype}</p>
-              <p style={{marginTop:'-30px'}}><b>ipfsURI:</b> <button className='btn' style={{ height: '40px', width: '110px' }} onClick={()=>{
+              <p style={{marginTop:'-30px'}}><b>Tender File:</b> <button className='btn' style={{ height: '40px', width: '110px' }} onClick={()=>{
                 window.open(props.ipfsuri,"_blank");
               }}> View File </button> </p>
 
@@ -69,7 +69,7 @@ const DisplayExploreResult = (props) => {
                       (
                         // if owner is exploring other's land, then owner can request to buy other's land, hence "Request for buy" can be displayed on button.
                         (props.didIRequested) ?
-                          <button className='req-pending'><b>Request Pending</b></button>
+                          <button className='req-pending' style={{backgroundColor:'red'}}><b>Request Pending</b></button>
                           :
                           // <button className='buy-btn'onClick={props.requestForBuy(props.surveyNo)}><b>Request for buy</b></button>
                           <>
@@ -82,13 +82,13 @@ const DisplayExploreResult = (props) => {
 
 
                               <div style={{ display: "flex", flexDirection: "row", marginTop: "25px" }}>
-                                <label className="sub_title" ><b>FileURI:</b></label>
+                                <label className="sub_title" ><b>Upload File:</b></label>
 
-                                {!ForClicked ? <input type="file" className='form_style' accept='*' onChange={uploadFiletoIPFS} placeholder='Enter File URI' style={{ marginLeft: "10px", }} /> : <p><a href={FileURI} target='_blank' style={{color:'white'}}>IPFS</a></p>}
+                                {!ForClicked ? <input type="file" className='form_style' accept='*' onChange={uploadFiletoIPFS} placeholder='Enter File URI' style={{ marginLeft: "10px", }} /> : <p style={{marginTop:'5px'}}><a href={FileURI} target='_blank' style={{color:'white'  , marginLeft:'15px'}}> File Uploaded Successfully </a></p>}
 
                               </div>
 
-                              <button className='btn' style={{ marginTop: "30px" }} onClick={() => props.requestForBuy(props.surveyNo, BidAmount, FileURI)}><b>Submit For Tender</b></button></> : <button className='btn' style={{marginTop:"-10px"}} onClick={() => { setApplied(true) }}>Apply</button>}
+                              <button className='btn' style={{ marginTop: "30px" }} onClick={() => props.requestForBuy(props.surveyNo, BidAmount, FileURI)}><b>Submit Application</b></button></> : <button className='btn' style={{marginTop:"-10px"}} onClick={() => { setApplied(true) }}>Apply</button>}
 
                           </>
 

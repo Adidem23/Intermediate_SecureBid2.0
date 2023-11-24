@@ -95,7 +95,7 @@ const AddAdmin = (props) => {
               <option value="Uttarakhand">Uttarakhand</option>
               <option value="West Bengal">West Bengal</option>
             </select>
-            
+
           </div>
           <div className='form_group'>
             <label className="sub_title">District</label>
@@ -113,8 +113,8 @@ const AddAdmin = (props) => {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div className='form_group'>
-            <label className="sub_title">Full Name</label>
-            <input type="text" className="form-control form_style" name="fullName" placeholder="Enter full name"
+            <label className="sub_title">Department Name</label>
+            <input type="text" className="form-control form_style" name="fullName" placeholder="Enter department name"
               autoComplete="off" value={adminData.fullName} onChange={onChangeFunc} />
           </div>
           <div className='form_group'>
@@ -129,7 +129,7 @@ const AddAdmin = (props) => {
           </div>
           <div className='form_group'>
             <label className="sub_title">Address</label>
-            <input type="text" className="form-control form_style" name="resendencialAddr" placeholder="Enter admin residencial address"
+            <input type="text" className="form-control form_style" name="resendencialAddr" placeholder="Enter office address"
               autoComplete="off" value={adminData.resendencialAddr} onChange={onChangeFunc} />
           </div>
 
