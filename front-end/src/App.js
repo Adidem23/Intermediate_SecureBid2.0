@@ -96,14 +96,14 @@ function App() {
             <div className='container mainDiv'>
               <div className='landingPage-heading-div'>
                 <img src={emblem} alt="emblem" className="emblem" />
-                <h5>Decentralized Tender Registration</h5>
+                <h5>Decentralized Allocation System</h5>
               </div>
 
               {/* <p className='welcome-p'>Welcome to online Land Registration and transfer of entitlement</p> */}
 
               <section className="hero">
                 <div className="hero-content">
-                  <p className='newp'>Explore and Unleash Power Of Web3 Never Before</p>
+                  <p className='newp'>Welcome to Decentralized Tender Allocation System</p>
                   {/* <button className="hero-button but2" id='butty'>Explore</button> */}
                   <button type="button hero-button but2" onClick={connectToEthereum} class="button">
                     <div class="button-top">Connect To Ethereum</div>
