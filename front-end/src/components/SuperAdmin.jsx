@@ -46,8 +46,8 @@ const navigator = useNavigate()
 
       <p className='superAdmin-p'>Choose the option</p>
 
-      <button className='admin-form-btn' onClick={handleAdmin}>Add Admin</button>
-      <button className='admin-form-btn'style={{marginLeft:"50px"}} onClick={handleVendor}>Add Vendor</button>
+      <button className='button123' onClick={handleAdmin}>Add Admin</button>
+      <button className='button123'style={{marginLeft:"50px"}} onClick={handleVendor}>Add Vendor</button>
     </div>
 
   )

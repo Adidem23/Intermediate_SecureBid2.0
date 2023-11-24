@@ -7,6 +7,7 @@ const DisplayExploreResult = (props) => {
   const [BidAmount, setBidAmount] = useState(0);
   const [FileURI, setFileURI] = useState("");
   const [ForClicked, setForClicked] = useState(false);
+  const [Applied, setApplied] = useState(false);
 
   const JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIwMzdkOTE0ZC01MjA4LTRkOGQtYmJmNS04Zjg0Yjg0ZDgzZjMiLCJlbWFpbCI6ImFkaXR5YXN1cnlhd2Fuc2hpNTQ1MUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiZWUzNDk3ZDYyMWQxZjlhMTIxZmIiLCJzY29wZWRLZXlTZWNyZXQiOiIzNTkxYTdhNzM0ODFkYzZhMGZhMzEzYTIzZDVlYjQ4MGM5ZjkxZDE3ODRiNDE4Y2JlNzI1MmM0MGM5ZTlkMWUwIiwiaWF0IjoxNjkxNjkzOTY1fQ.wYGUrY0SZkBOqjPHnElhgSGy0F9xNdNLXMgDehgIkJE';
 
@@ -29,8 +30,8 @@ const DisplayExploreResult = (props) => {
           'Authorization': `Bearer ${JWT}`
         }
       });
-      console.log("Hash of the data : "+res.data.IpfsHash);
-      const deliverabelURl=`https://ipfs.io/ipfs/${res.data.IpfsHash}`;
+      console.log("Hash of the data : " + res.data.IpfsHash);
+      const deliverabelURl = `https://ipfs.io/ipfs/${res.data.IpfsHash}`;
       setFileURI(deliverabelURl);
       setForClicked(true)
 
@@ -45,7 +46,7 @@ const DisplayExploreResult = (props) => {
       {
         (props.propertyId != 0) ?   // propertyId != 0 means we got a result while exploring.
           (
-            <div className='explore-result'>
+            <div className='explore-result' style={{ marginBottom: '20px' }}>
               <p><b>Owner Address:</b> {props.owner}</p>
               <p><b>Owner Name:</b>{props.OwnerName}</p>
               <p><b>Survey Number:</b> {props.surveyNo}</p>
@@ -70,19 +71,22 @@ const DisplayExploreResult = (props) => {
                           :
                           // <button className='buy-btn'onClick={props.requestForBuy(props.surveyNo)}><b>Request for buy</b></button>
                           <>
-                            <div style={{ display: "flex", flexDirection: "row" }}>
-                              <p><b>Budget:</b></p>
-                              <input type="number" onChange={(e) => { setBidAmount(e.target.value) }} placeholder='Enter Bid Amount' style={{ marginLeft: "10px" }} />
-                            </div>
+                            {Applied ? <>
 
-                            <div style={{ display: "flex", flexDirection: "row", marginTop: "15px" }}>
-                              <p><b>FileURI:</b></p>
+                              <div style={{ display: "flex", flexDirection: "row" }}>
+                                <label className="sub_title" ><b>Budget:</b></label>
+                                <input type="number" className='form_style' onChange={(e) => { setBidAmount(e.target.value) }} placeholder='Enter Bid Amount' style={{ marginLeft: "10px" }} />
+                              </div>
 
-                             {!ForClicked ? <input type="file" accept='*' onChange={uploadFiletoIPFS} placeholder='Enter File URI' style={{ marginLeft: "10px", }} />: <p><a href={FileURI} target='_blank'>IPFS</a></p>}
 
-                            </div>
+                              <div style={{ display: "flex", flexDirection: "row", marginTop: "25px" }}>
+                                <label className="sub_title" ><b>FileURI:</b></label>
 
-                            <button className='buy-btn' style={{ marginTop: "20px" }} onClick={() => props.requestForBuy(props.surveyNo, BidAmount, FileURI)}><b>Request for buy</b></button>
+                                {!ForClicked ? <input type="file" className='form_style' accept='*' onChange={uploadFiletoIPFS} placeholder='Enter File URI' style={{ marginLeft: "10px", }} /> : <p><a href={FileURI} target='_blank' style={{color:'white'}}>IPFS</a></p>}
+
+                              </div>
+
+                              <button className='btn' style={{ marginTop: "30px" }} onClick={() => props.requestForBuy(props.surveyNo, BidAmount, FileURI)}><b>Request for buy</b></button></> : <button className='btn' onClick={() => { setApplied(true) }}>Apply</button>}
 
                           </>
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/DisplayDetails.css';
 
 const DisplayRequests = (props) => {
   return (
@@ -11,7 +12,7 @@ const DisplayRequests = (props) => {
             <p><b>TenderName:</b> {props.tendorName}</p>
             <p><b>Establishment Year:</b> {props.establishmentyear}</p>
 
-            <button className='accept-req' onClick={() => {props.acceptReq(props.index, props.reqNo)}}><b>Accept Request</b></button>
+            <button className='btn' style={{backgroundColor:"green" , color:"white"}} onClick={() => {props.acceptReq(props.index, props.reqNo)}}><b>Accept Request</b></button>
         </div>
   )
 }

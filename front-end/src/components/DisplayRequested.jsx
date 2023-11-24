@@ -19,7 +19,7 @@ const DisplayRequested = (props) => {
             </div>
           </div>
 
-            <button className='no-sale'><b>Request Pending</b></button>
+            <button className='btn' style={{color:'white',backgroundColor:"red"}}><b>Request Pending</b></button>
         </div>
     </>
   )

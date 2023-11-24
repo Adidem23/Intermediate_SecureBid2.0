@@ -75,31 +75,31 @@ const RegisterLand = (props) => {
 
         <div className='col-12 col-sm-6'>
 
-          <form method='POST' className='admin-form'>
+          <form method='POST' className='admin-form form_area123'>
 
-            <div className='form-group'>
-              <label>Market Value</label>
-              <input type="number" className="form-control" name="marketValue" placeholder="Enter market value"
+            <div className='form_group'>
+              <label className="sub_title">Market Value</label>
+              <input type="number" className="form-control form_style" name="marketValue" placeholder="Enter market value"
                 autoComplete="off" value={landDetails.marketValue} onChange={onChangeFunc} />
             </div>
 
 
-            <div className='form-group'>
-              <label>Tender Type</label>
-              <input type="text" className="form-control" name="tendertype" placeholder="Enter Tender Type"
+            <div className='form_group'>
+              <label className="sub_title">Tender Type</label>
+              <input type="text" className="form-control form_style" name="tendertype" placeholder="Enter Tender Type"
                 autoComplete="off" value={landDetails.tendertype} onChange={onChangeFunc} />
             </div>
 
 
-            <div className='form-group'>
-              <label>Tender Name</label>
-              <input type="text" className="form-control" name="tenderName" placeholder="Enter Tender Name"
+            <div className='form_group'>
+              <label className="sub_title">Tender Name</label>
+              <input type="text" className="form-control form_style" name="tenderName" placeholder="Enter Tender Name"
                 autoComplete="off" value={landDetails.tenderName} onChange={onChangeFunc} />
             </div>
 
-            <div className='form-group'>
-              <label>Tender File</label>
-              {!URICame ? <input type="file" accept='*' className="form-control" name="ipfsuri" placeholder="Enter Tender File"
+            <div className='form_group'>
+              <label className="sub_title">Tender File</label>
+              {!URICame ? <input type="file" accept='*' className="form-control form_style" name="ipfsuri" placeholder="Enter Tender File"
                 autoComplete="off"  onChange={uploadIPFsFile} />:<p><a href={SetttedURl} target='_blank'>IPFS</a></p>}
             </div>
 
@@ -107,7 +107,7 @@ const RegisterLand = (props) => {
         </div>
 
       </div>
-      <button className='admin-form-btn' onClick={handleOnClick}>Submit</button>
+      <button className='btn' onClick={handleOnClick}>Submit</button>
     </div>
   )
 }

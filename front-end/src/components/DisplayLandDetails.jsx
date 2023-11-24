@@ -1,4 +1,6 @@
 import React from 'react'
+import '../css/DisplayDetails.css'
+
 
 const DisplayLandDetails = (props) => {
   return (
