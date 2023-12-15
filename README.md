@@ -10,8 +10,3 @@ This is blockchain based Tender Allocation System in which There are superadmin 
 6. IPFS for uploading documents
 7. Pinata Cloud for IPFS Gateway
 8. EthersJs For Payments 
-
-# Demo Video 
-
-# Deployed Site Link 
-
